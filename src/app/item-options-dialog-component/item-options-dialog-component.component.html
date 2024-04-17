@@ -1,0 +1,65 @@
+<div *ngIf="!modifiers_loading" >
+  <h2 mat-dialog-title>{{description}}</h2>
+  <!-- <mat-dialog-content>
+    <mat-error *ngIf="selectionError">Please Select The minimum Required Fields</mat-error>
+    <div class="row main-container">
+      <div *ngFor="let option of options; let i = index" class="col-width mb-3 ml-4">
+        <h2>{{option.groupName}}<span *ngIf="option.minimumSelect > 0"> (Select {{option.minimumSelect}}-{{option.groupLimit}})</span> </h2>
+        <div *ngFor="let modifier of option.modifiers">
+          <mat-card>
+            <mat-checkbox class="checkbox-content" (change)="onItemSelect(option,modifier, $event.checked, modifier.priceAddon)"
+                                  [disabled]="option.selected >= option.groupLimit && !modifier.checked">{{modifier.name}}
+              <span *ngIf="modifier.price !== 0 && !modifier.priceAddon">&nbsp; +${{modifier.price + priceModification}}</span>
+              <span *ngIf="modifier.price !== 0 && modifier.priceAddon">&nbsp; +${{modifier.price}}</span>
+            </mat-checkbox>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content> -->
+
+  <mat-dialog-content>
+    <mat-error *ngIf="selectionError">Please select the required options</mat-error>
+    <div class="row main-container">
+      <div *ngFor="let modifierGroup of modifierGroups; let i = index" class="col-width mb-3 ml-4">
+        <h3>{{modifierGroup.name}}<span *ngIf="modifierGroup.minRequired > 0">
+        (Select {{modifierGroup.minRequired}} )</span> </h3>
+        <div *ngFor="let modifier of modifierGroup.modifiers.elements">
+            <mat-button-toggle #toggleBtn class="checkbox-content row" class=".mat-button-toggle"
+                               (change)="onItemSelected(i, modifier, toggleBtn.checked)">
+              <!-- [disabled]="modifierGroup.selected >= modifierGroup.maxAllowed && !modifier.checked"> -->
+              {{modifier.name}} &nbsp;&nbsp;&nbsp; + ${{modifier.price/100}}
+            </mat-button-toggle>
+        </div>
+      </div>
+    </div>
+    <h3>Custom Message</h3>
+    <div class="dialog-options-container">
+      <textarea id="custom-message-input" style="width: 100%; height: 100px"></textarea>
+    </div>
+  </mat-dialog-content>
+
+  <!-- <mat-dialog-content>
+    <div class="row main-container">
+      <div *ngFor="let modifier of options; let i = index" class="col-width mb-3 ml-4">
+          <mat-card>
+            <mat-checkbox class="checkbox-content"
+                      (change)="onItemSelect(modifier, $event.checked)">
+                      {{modifier.name}}&nbsp;&nbsp;&nbsp; + ${{modifier.price/100}}
+              <!-- <span *ngIf="modifier.price !== 0 && !modifier.priceAddon">&nbsp; +${{modifier.price + priceModification}}</span> -->
+  <!-- <span *ngIf="modifier.price !== 0 && modifier.priceAddon">&nbsp; +${{modifier.price}}</span> -->
+  <!-- </mat-checkbox> <br>
+</mat-card>
+</div>
+</div>
+</mat-dialog-content> -->
+
+
+
+  <mat-dialog-actions align="end">
+    <div class="button-container">
+      <button (click)="close()" mdbBtn color="danger" block="true" class="my-4 right-margin-set" >{{ 'button.cancel' | translate }}</button>
+      <button mdbBtn color="info" block="true" class="my-4" (click)="save()">{{ 'items.order' | translate }}</button>
+    </div>
+  </mat-dialog-actions>
+</div>

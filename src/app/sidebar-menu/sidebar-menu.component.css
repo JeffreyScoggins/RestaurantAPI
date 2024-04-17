@@ -1,0 +1,254 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.cart-container {
+  text-align: right;
+  display: inline;
+  position: fixed;
+  bottom: 50px;
+  font-size: 20px;
+  right: 50px;
+}
+
+.cart-item-count {
+  border-radius: 50px;
+  background-color: lightgray;
+}
+
+.cart-icon {
+  height: 75px;
+  width:75px;
+  color: lightgray;
+  padding: 3px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #126178;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.logout-option{
+  position: absolute;
+  bottom: 0;
+  background-color: #4A525A/*burlywood*/;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.avatar-image{
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: auto;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  border-bottom: 2px solid #e9ecef;
+  text-decoration: none;
+  font-size: 15px;
+  color: #f1f1f1;
+  display: block;
+}
+
+.sidenav h3 {
+  padding-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f1f1f1;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #818181;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.header {
+  text-align: center;
+  margin-top: 15px;
+  font-family: cursive;
+  color: lightgray;
+}
+
+.sidenav-items {
+  width: 180px;
+  background-color: #204761;
+  /*background-image: url(https://images.unsplash.com/photo-1481988535861-271139e06469?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1967&q=80) !important;*/
+  overflow: hidden;
+  font-size: 20px;
+  padding-top: 20px;
+  /*background: #4d7ea8;*/
+  position: fixed;
+  left: 0;
+  width: 15%;
+  height: 100%;
+  transition: 0.5s;
+  transition-property: left;
+  z-index: 1;
+}
+.content-container {
+  padding: 20px;
+  background-color: aliceblue;
+}
+.dropdown-container{
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  font-family: Raleway;
+  color: green /*546e7a*/;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 24px;
+  display: block;
+}
+
+.dropdown-items-label {
+  /*border-top: solid 2px white;*/
+  /*border-bottom: solid 2px white;*/
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  top:0;
+  bottom: 0px;
+  width: 100%;
+  padding-left: 21px;
+  color: lightgray;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.link-container {
+  text-align: left;
+}
+
+a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: lightgray;
+}
+
+nav {
+  color: lightgray;
+}
+
+.multi-level,  .item ul, .nav input[type=checkbox] {
+  display: none;
+}
+
+#menu:checked ~ .multi-level, .item input:checked ~ ul {
+  display: block;
+}
+
+.dropdown-icon {
+  vertical-align: middle;
+}
+
+ul, li, label {
+  text-decoration: none;
+  list-style: none;
+}
+
+footer {
+  bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-router-container {
+  min-height: 93% !important;
+}
+
+
+.call-waiter-image {
+  background-color: #572c46;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  padding: 5px;
+}
+
+.multi-level-1,  .item ul, .nav input[type=checkbox] {
+  display: none;
+}
+
+#menu-1:checked ~ .multi-level-1, .item input:checked ~ ul {
+  display: block;
+}
+
+.dropdown-container {
+  text-align: center;
+  /*margin-bottom: 10px;*/
+}
+
+a.waves-effect, a.waves-light {
+  display: block;
+}
+
+
+.dropdown-item:hover, .dropdown-item:focus {
+  text-decoration: none;
+  /*color: #07070A!*818181*!;*/
+  color: white;
+}
+
+
+.body-container {
+  padding: 25px;
+}
+
+.active {
+  background-color: #204761;
+  color: burlywood;
+}
+
+.logout-option:hover{
+  color: #818181;
+}
+.dropdown-item waves-light:hover{
+  color:#818181;
+}
+
+.dropdown-items-label:hover {
+  color: white;
+}
+.dropdown-text-container:hover{
+  color: #818181;
+}
+.dropdown-item waves-light ng-star-inserted:hover {
+  text-color: #818181;
+}
+
+.content-container:hover{
+  color: #818181;
+}

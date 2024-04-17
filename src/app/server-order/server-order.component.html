@@ -1,0 +1,24 @@
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <div></div>
+    <h2>{{ 'serverOrder.title' | translate }}</h2>
+    <div></div>
+    <!--<a [routerLink]="['/addCategories']" *ngIf="currentUser.role === '1' || currentUser.role === '2'">New Category</a>-->
+    <!--<form>-->
+    <!--<input type="search" id="myInput" required class="search-box" (keyup)="loadUsersBySearch()"-->
+    <!--(keypress)="loadUsersBySearch()" placeholder="Search by name or username" title="Type in a name">-->
+    <!--<button class="close-icon" (click)="resetInput()" type="reset"></button>-->
+    <!--</form>-->
+  </div>
+  <div class="row main-container">
+    <div class="row center-align">
+      <div class="col-width mb-3 ml-4" *ngFor="let table of tables">
+        <button [routerLink]="['/order', { tableUuid: table.uuid, tableName: table.username }]">{{table.username}}</button>
+      </div>
+    </div>
+  </div>
+</div>

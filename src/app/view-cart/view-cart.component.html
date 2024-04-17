@@ -1,0 +1,69 @@
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+
+  <div class="navigation-details-panel">
+    <i class="material-icons" [routerLink]="['/order', { categoryUuid: categoryUuid,
+                                                     tableUuid: tableUuid, tableName: tableName }]">
+      arrow_back
+    </i>
+    <div></div>
+    <h2 *ngIf="currentUser.role === '2'">{{ 'viewCart.orderConfirmation' | translate }}</h2>
+    <h2 *ngIf="currentUser.role !== '2'">{{ 'viewCart.orderConfirmationFor' | translate }}{{tableName}}</h2>
+    <div></div>
+  </div>
+
+  <table id="example" class="mdl-data-table" style="width:100%">
+    <thead>
+      <tr>
+        <th><a>{{ 'addItem.name' | translate }}</a></th>
+        <th><a>{{ 'orderHistory.customizations' | translate }}</a></th>
+        <th><a>{{ 'addItem.price' | translate }}</a></th>
+        <th>{{ 'button.delete' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lineItem of lineItems; let i = index">
+        <td>
+          <!-- <tr>
+            <td> {{lineItem.name}}</td>
+            <td> {{lineItem.note}}</td>
+          </tr> -->
+          <tr>
+            {{lineItem.name}}
+          </tr>
+          <tr *ngIf="lineItem.note">
+            {{lineItem.note}}
+          </tr>
+        </td>
+
+        <td>
+          <tr *ngFor="let modification of lineItem.newModifications ">
+            <td> {{modification.name}} &nbsp;&nbsp;</td>
+            <td> ${{modification.amount/100}}</td>
+          </tr>
+        </td>
+
+        <td> ${{lineItem.price/100 | number:'1.2'}}</td>
+        <!-- {{lineItem.priceWithModifier > 0 ? lineItem.priceWithModifier/100 : lineItem.price/100  | number:'1.2'}} -->
+        <td>
+          <button (click)="deleteItemFromCart(lineItem)" [disabled]="loadingButton" mdbBtn color="danger" block="true"
+            class="my-2">{{ 'button.delete' | translate }}</button>
+        </td>
+      </tr>
+      <div class="divider"></div>
+      <tr>
+        <td>{{ 'orderHistory.total' | translate }}:</td>
+        <td></td>
+        <td>${{getCartTotal()/100 | number:'1.2'}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="submitOrder()" [disabled]="loadingButton || lineItems.length < 1" mdbBtn color="info" block="true"
+    class="my-4">{{ 'button.placeOrder' | translate }}</button>
+
+</div>

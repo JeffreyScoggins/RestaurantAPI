@@ -1,0 +1,6 @@
+<select  class="custom-select" style="width:auto;" (change)="sendMessage($event.target.value)">
+  <option value="" selected="true">All Categories</option>
+  <option *ngFor="let category of categories;let i of index" value="{{category.categoryUuid}}">
+    {{category.categoryName}}
+  </option>
+</select>

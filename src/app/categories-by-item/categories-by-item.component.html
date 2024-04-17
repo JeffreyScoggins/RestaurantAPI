@@ -1,0 +1,56 @@
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<div *ngIf="!loading" >
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <i class="material-icons" [routerLink]="['/order', { tableUuid: tableUuid, tableName: tableName }]">
+      arrow_back
+    </i>
+    <h2>{{ 'categories.title' | translate }}</h2>
+    <div></div>
+    <!--<form>-->
+    <!--<input type="search" id="myInput" required class="search-box" (keyup)="loadUsersBySearch()"-->
+    <!--(keypress)="loadUsersBySearch()" placeholder="Search by name or username" title="Type in a name">-->
+    <!--<button class="close-icon" (click)="resetInput()" type="reset"></button>-->
+    <!--</form>-->
+  </div>
+  <div class="row main-container">
+    <div *ngFor="let category of cloverCategories; let i = index" class="col-width mb-3 ml-4">
+
+      <div class="item-info-format">
+
+        <div class="info-container">
+          <!-- <img class="item-image" id='base64image' src="{{item.imageData}}"> -->
+          <!--<div *ngIf="item.containsOptions">-->
+            <!--<app-dropdown-item-option-selector class="dropdown-item-selector" [options]="item.options"-->
+                                               <!--[limitSelection]="item.optionCapacity"-->
+                                               <!--(selectedList)="receiveSelectedOptionsList($event, item)">-->
+
+            <!--</app-dropdown-item-option-selector>-->
+            <!--<button class="customize-button" (click)="openOptions(item)">{{ 'items.customize' | translate }}</button>-->
+          <!--</div>-->
+
+          <!--<div *ngIf="!item.containsOptions">-->
+            <!--<app-dropdown-item-option-selector class="dropdown-item-selector" [options]="item.options"-->
+            <!--[limitSelection]="item.optionCapacity"-->
+            <!--(selectedList)="receiveSelectedOptionsList($event, item)">-->
+
+            <!--</app-dropdown-item-option-selector>-->
+            <!-- <button class="customize-button" (click)="openCustomMessage(item)">{{ 'items.customize' | translate }}</button> -->
+          <!--</div>-->
+
+          <!-- <div class="width-setter"> ${{item.price}}</div> -->
+          <div class="width-setter"> {{category.name}}</div>
+          <button mdbBtn color="secondary" (click)="addToCart(item)">{{ 'items.order' | translate }}</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<button class="order-submit" *ngIf="currentUser.role !== '3'" [routerLink]="['/cart', { tableUuid: tableUuid,
+                                                              tableName: tableName,
+                                                              categoryUuid: categoryUuid}]">{{ 'items.reviewOrder' | translate }}</button>
+<notifier-container></notifier-container>
+

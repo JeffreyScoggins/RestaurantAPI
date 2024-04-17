@@ -1,0 +1,50 @@
+export class Customer {
+  customerSince: number;
+  firstName: string;
+  lastName: string;
+  addresses: [
+    {
+      zip: string;
+      country: string;
+      address3: string;
+      address2: string;
+      city: string;
+      address1: string;
+      id: string;
+      state: string;
+    }
+    ];
+  metadata: {
+    note: string;
+    modifiedTime: number;
+    businessName: string;
+    dobDay: number;
+    dobYear: number;
+    dobMonth: number;
+  };
+  emailAddresses: [
+    {
+      emailAddress: string;
+      id: string;
+      verifiedTime: number;
+      primaryEmail: boolean;
+    }
+    ];
+  cards: [
+    {
+      last4: string;
+      firstName: string;
+      lastName: string;
+      modifiedTime: number;
+      cardType: string;
+      id: string;
+      first6: string;
+      expirationDate: string;
+      token: string;
+    }
+    ];
+  marketingAllowed: number;
+  merchant: {
+    id: string;
+  };
+}

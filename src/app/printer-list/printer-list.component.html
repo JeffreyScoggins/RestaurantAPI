@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+</div>
+<div class="mainDiv">
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <div></div>
+    <h2>Assign Printers</h2>
+    <div></div>
+  </div>
+
+  <div class="toolbar-container">
+    <select ng-model="printers">{{getPrinters()}}"</select>
+  </div>
+
+
+

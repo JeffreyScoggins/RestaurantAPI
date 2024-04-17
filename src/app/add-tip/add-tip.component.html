@@ -1,0 +1,55 @@
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+
+  <div class="total">
+    <h2>Total Amount Due:<br>
+      ${{getTotalAmount() | number:'1.2'}}</h2>
+  </div>
+  <div class="buttons">
+    <div class="top-row">
+      <div class="tip-15">
+        <button (click)="addTip15()" mdbBtn color="info" class="my-4">Tip 15%</button>
+      </div>
+      <div class="tip-18">
+        <button (click)="addTip18()" mdbBtn color="info" class="my-4">Tip 18%</button>
+      </div>
+      <div class="tip-20">
+        <button (click)="addTip20()" mdbBtn color="info" class="my-4">Tip 20%</button>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="tip-30">
+        <button (click)="addTip30()" mdbBtn color="info" class="my-4">Tip 30%</button>
+      </div>
+      <div class="tip-custom">
+        <button (click)="showTextBox()" mdbBtn color="info" class="my-4">Custom Amount</button>
+      </div>
+
+      <div class="tip-null">
+        <button (click)="addTipNull()" mdbBtn color="info" class="my-4">No Tip</button>
+      </div>
+
+
+
+      </div>
+    <div id="customTipBox" class="customTipBox">
+      <input type = "number"
+             step="0.01"
+             min="0"
+             max="100"
+             id = "customTip"
+             name = "customTip">
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button (click)="addTipCustom()" mdbBtn color="info" class="my-4">Submit</button>
+    </div>
+
+
+</div>
+
+
+
+

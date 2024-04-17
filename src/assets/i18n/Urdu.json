@@ -1,0 +1,130 @@
+{
+  "order": {
+    "categories": "اقسام"
+  },
+
+  "sidebar": {
+    "menu": "مینو",
+    "order": " آرڈر کریں",
+    "orderHistory": "آرڈر کی تاریخ",
+    "orderView": "آرڈر ملاحظہ کریں",
+    "transactions": "ٹرانزیکشن",
+    "waiterMenu": "سرور مینو",
+    "serverOrder": "سرور آرڈر",
+
+    "orderReady": "تیار احکامات",
+    "tableReview": "ٹیبل کا جائزہ",
+    "management": "مینجمنٹ",
+    "userAccounts": "صارف اکاؤنٹس",
+    "items": "اشیاء",
+    "logout": "لاگ آوٹ"
+  },
+
+  "addCategory": {
+    "title": "قسم شامل کریں",
+    "categoryName": "قسم کا نام",
+    "required": "ضرورت ہے",
+    "addLogo": "Select Logo Image",
+    "categoryNameIs": "قسم کا نام ہے",
+    "uploadImage": "تصویر انٹرنیٹ پر ڈالنا"
+  },
+
+  "addItem": {
+    "title": "آئٹم شامل کریں",
+    "name": "نام",
+    "required": " ضرورت ہے ",
+
+    "price": "قیمت",
+    "maxOptionsSelect": "زیادہ سے زیادہ اختیارات منتخب",
+    "minOptionsSelect": "انتخابی کم سے کم اختیارات",
+    "field": "فیلڈ",
+    "category": ": قسم",
+    "categoryRequired": "قسم کی ضرورت ہے ",
+    "hasOptions": "اختیارات ہیں? ",
+    "optSepByCom": "کمانٹس کی طرف سے الگ الگ اختیارات"
+  },
+
+  "categories": {
+    "title": "اقسام"
+  },
+
+  "items": {
+    "title": "اشیاء",
+    "customize": "حسب ضرورت",
+    "order": "آرڈر",
+    "viewCart": "ٹوکری دیکھیں",
+    "reviewOrder": "جائزہ آرڈر"
+  },
+
+  "orderHistory": {
+    "title": "آرڈر کی تاریخ",
+    "name": "نام",
+    "price": "قیمت",
+    "customizations": "ترمیم",
+    "total": "کل"
+  },
+
+  "orderHisTable": {
+    "title": "ٹرانزیکشن کی تاریخ",
+    "date": "تاریخ",
+    "selectedOptions": "منتخب ترمیم"
+  },
+
+  "serverOrder": {
+    "title": "سرور آرڈر"
+  },
+
+  "tableSummary": {
+    "title": "ٹیبل خلاصہ",
+    "resetTable": "ٹیبل ری سیٹ کریں"
+  },
+
+  "viewCart": {
+    "orderConfirmation": "آرڈر کی تصدیق",
+    "orderConfirmationFor": "آرڈر کی توثیق"
+  },
+
+  "viewOrders": {
+    "title": "آرڈر ملاحظہ کریں",
+    "sortBy": "کی طرف سے ترتیب دیں",
+    "table": "ٹیبل",
+    "filter": "Filter: ",
+    "by": " by ",
+    "status": "حالت",
+    "statusChange": "حیثیت کی تبدیلی"
+
+  },
+
+  "waiterRequest": {
+    "title": "ویٹر کی درخواستیں"
+  },
+
+  "waiterReady": {
+    "title": "ٹیبل کے لئے تیار"
+  },
+
+  "button": {
+    "delete": "حذف کریں",
+    "cancel": "منسوخ کریں",
+    "submit": "جمع",
+    "complete": "ختم",
+    "confirm": "تصدیق کریں",
+    "ok": "ٹھیک ہے",
+    "add": "Add",
+    "placeOrder": "حکم صادر کریں",
+    "start": "شروع کریں",
+    "update": "اپ ڈیٹ",
+    "finish": "ختم"
+  },
+
+  "orderWizard": {
+    "estimatedTime": " متوقع وقت ",
+    "enterFullName": "برائے مہربانی اپنا مکمل نام درج کریں",
+    "minutes": "منٹ"
+  },
+
+  "modifiers": {
+    "name": "Modifier Name",
+    "price": "Price"
+  }
+}

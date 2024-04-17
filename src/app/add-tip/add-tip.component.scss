@@ -1,0 +1,73 @@
+.total{
+  text-align: center;
+  margin-top: 15%;
+}
+
+.buttons{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+}
+
+.top-row{
+
+  position: relative;
+  margin:0 auto;
+  display: flex;
+  left: 41%;
+}
+
+.bottom-row{
+  position: relative;
+  margin-top: 6%;
+  display: flex;
+  left: 36%
+
+}
+
+.tip-15{
+
+}
+
+.tip-18{
+
+
+}
+
+.tip-20{
+border-radius: 30px;
+
+
+}
+
+.customTipBox{
+  display: none;
+  position: absolute;
+  margin-top: 8%;
+  left: 65%
+}
+
+.navigation-details-panel {
+  display: flex;
+  justify-content: space-between;
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+}
+
+td, th {
+  text-align: left;
+}
+
+h2 {
+  text-align: center;
+}

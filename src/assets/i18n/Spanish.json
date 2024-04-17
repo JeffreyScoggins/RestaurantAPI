@@ -1,0 +1,128 @@
+{
+  "order": {
+    "categories": "Las categorías"
+  },
+
+  "sidebar": {
+    "menu": "Menú",
+    "order": "Realizar pedido",
+    "orderHistory": "Historial de pedidos",
+    "orderView": "Vista del pedido",
+    "transactions": "Actas",
+    "waiterMenu": "Menú de servidor",
+    "serverOrder": "Orden del servidor",
+    "orderReady": "Pedidos listos",
+    "tableReview": "Revisión de la mesa",
+    "management": "administración",
+    "userAccounts": "Cuentas de usuario",
+    "items": "Artículos",
+    "logout": "Cerrar sesión"
+  },
+
+  "addCategory": {
+    "title": "añadir categoría",
+    "categoryName": "nombre de la categoría",
+    "required": "necesario",
+    "addLogo": "Select Logo Image",
+    "categoryNameIs": "Nombre de la categoría es ",
+    "uploadImage": "Cargar imagen"
+  },
+
+  "addItem": {
+    "title": "Añadir artículo",
+    "name": "Nombre",
+    "required": " necesario",
+
+    "price": "Precio",
+    "maxOptionsSelect": "Opciones máximas seleccionables",
+    "minOptionsSelect": "Opciones mínimas seleccionables",
+    "field": "Campo",
+    "category": "Categoría: ",
+    "categoryRequired": "La categoria es requerida",
+    "hasOptions": "Tiene opciones: ",
+    "optSepByCom": "Opciones separadas por comas"
+  },
+
+  "categories": {
+    "title": "Las categorías"
+  },
+
+  "items": {
+    "title": "Artículos",
+    "customize": "Personalizar",
+    "order": "Orden",
+    "viewCart":"Ver carrito",
+    "reviewOrder": "Orden de revisión"
+  },
+
+  "orderHistory": {
+    "title": "Historial de pedidos",
+    "name": "Nombre",
+    "price": "Precio",
+    "customizations": "Personalizaciones",
+    "total": "Total"
+  },
+
+  "orderHisTable": {
+    "title": "Historial de transacciones",
+    "date": "Fecha",
+    "selectedOptions": "Opciones seleccionadas"
+  },
+
+  "serverOrder": {
+    "title": "Orden de servidor"
+  },
+
+  "tableSummary": {
+    "title": "Resumen de la tabla",
+    "resetTable": "Reajustar tabla"
+  },
+
+  "viewCart": {
+    "orderConfirmation": "Confirmación del pedido",
+    "orderConfirmationFor": "Confirmación de pedido para "
+  },
+
+  "viewOrders": {
+    "title": "Vista del pedido",
+    "sortBy": "Ordenar por",
+    "table": "Mesa",
+    "status": "Estado",
+    "filter": "Filter: ",
+    "by": " by ",
+    "statusChange": "Cambio de estado"
+  },
+
+  "waiterRequest": {
+    "title": "Solicitudes de camarero"
+  },
+
+  "waiterReady": {
+    "title": "Listo para la mesa"
+  },
+
+  "button": {
+    "delete": "Borrar",
+    "cancel": "Cancelar",
+    "submit": "Enviar",
+    "complete": "completar",
+    "confirm": "Confirmar",
+    "ok": "OK",
+    "add": "Add",
+    "placeOrder": "Realizar pedido",
+    "start": "comienzo",
+    "update": "Actualizar",
+    "finish": "Terminar"
+  },
+
+  "orderWizard": {
+    "estimatedTime": "hora prevista ",
+    "enterFullName": "Por favor ingresa tu nombre completo",
+    "minutes": "minutos"
+  },
+
+  "modifiers": {
+    "name": "Modifier Name",
+    "price": "Price"
+  }
+}

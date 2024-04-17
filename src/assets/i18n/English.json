@@ -1,0 +1,127 @@
+{
+  "order": {
+    "categories": "Categories"
+  },
+
+  "sidebar": {
+    "menu": "Menu",
+    "order": "Place Order",
+    "orderHistory": "Order History",
+    "orderView": "Order View",
+    "transactions": "Transactions",
+    "waiterMenu": "Server Menu",
+    "serverOrder": "Server Order",
+    "orderReady": "Ready Orders",
+    "tableReview": "Table Review",
+    "management": "Management",
+    "userAccounts": "User Accounts",
+    "items": "Items",
+    "logout": "Logout"
+  },
+
+  "addCategory": {
+    "title": "Add Category",
+    "categoryName": "Category Name",
+    "required": "required",
+    "addLogo": "Select Logo Image",
+    "categoryNameIs": "Category Name is",
+    "uploadImage": "Upload image"
+  },
+
+  "addItem": {
+    "title": "Add Item",
+    "name": "Name",
+    "required": " required",
+
+    "price": "Price",
+    "maxOptionsSelect": "Maximum options selectable",
+    "minOptionsSelect": "Minimum options selectable",
+    "field": "Field",
+    "category": "Category: ",
+    "categoryRequired": "Category is Required",
+    "hasOptions": "Has Options: ",
+    "optSepByCom": "Options Separated By Commas"
+  },
+
+  "categories": {
+    "title": "Categories"
+  },
+
+  "items": {
+    "title": "Items",
+    "customize": "Customize",
+    "order": "Order",
+    "reviewOrder": "Review Order",
+    "viewCart":"View Cart"
+  },
+
+  "orderHistory": {
+    "title": "Order History",
+    "name": "Name",
+    "price": "Price",
+    "customizations": "Customizations",
+    "total": "Total"
+  },
+
+  "orderHisTable": {
+    "title": "Transaction History",
+    "date": "Date",
+    "selectedOptions": "Selected Options"
+  },
+
+  "serverOrder": {
+    "title": "Server Order"
+  },
+
+  "tableSummary": {
+    "title": "Table Summary",
+    "resetTable": "Reset Table"
+  },
+
+  "viewCart": {
+    "orderConfirmation": "Order Confirmation",
+    "orderConfirmationFor": "Order Confirmation for "
+  },
+
+  "viewOrders": {
+    "title": "Order View",
+    "filter": "Filter: ",
+    "by": " by ",
+    "table": "Table",
+    "status": "Status",
+    "statusChange": "Status Change"
+  },
+
+  "waiterRequest": {
+    "title": "Waiter Requests"
+  },
+
+  "waiterReady": {
+    "title": "Ready For Table"
+  },
+
+  "button": {
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "complete": "complete",
+    "confirm": "Confirm",
+    "ok": "OK",
+    "add": "Add",
+    "placeOrder": "Place Order",
+    "start": "Start",
+    "update": "Update",
+    "finish": "Finish"
+  },
+
+  "orderWizard": {
+    "estimatedTime": "Estimated Time ",
+    "enterFullName": "Please enter your full name to begin",
+    "minutes": "minutes"
+  },
+
+  "modifiers": {
+    "name": "Modifier Name",
+    "price": "Price"
+  }
+}

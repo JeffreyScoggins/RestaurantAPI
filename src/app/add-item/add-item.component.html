@@ -1,0 +1,144 @@
+<div class="row" class="main-container-form">
+  <div class="form-container">
+    <alert></alert>
+    <h2>{{ 'addItem.title' | translate }}</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="{{ 'addItem.name' | translate }}" formControlName="name">
+        <mat-error *ngIf="f.name.errors">
+          {{ 'addItem.name' | translate }}<strong>{{ 'addItem.required' | translate }}</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" placeholder="{{ 'addItem.price' | translate }}" formControlName="price">
+        <mat-error *ngIf="f.price.errors">
+          {{ 'addItem.price' | translate }} <strong>{{ 'addItem.required' | translate }}</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!--<mat-form-field class="example-full-width">-->
+        <!--<input matInput type="number" placeholder="{{ 'addItem.maxOptionsSelect' | translate }}"-->
+               <!--formControlName="optionCapacity">-->
+        <!--<mat-error *ngIf="f.optionCapacity.errors">-->
+          <!--{{ 'addItem.field' | translate }} <strong>{{ 'addItem.required' | translate }}</strong>-->
+        <!--</mat-error>-->
+      <!--</mat-form-field>-->
+
+      <!--<mat-form-field class="example-full-width">-->
+        <!--<input matInput type="number" placeholder="{{ 'addItem.minOptionsSelect' | translate }}"-->
+               <!--formControlName="minimumOptionsSelection">-->
+      <!--</mat-form-field>-->
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Image Url" id="image-url">
+      </mat-form-field>
+
+      <div style="display: flex">
+        <div class="form-group">
+          <label for="categoryUuid">{{ 'addItem.category' | translate }} </label> &nbsp;
+          <app-dropdown-categories (messageEvent)="receiveMessage($event)"></app-dropdown-categories>
+          <div *ngIf="f.categoryUuid.errors" class="invalid-feedback">
+            <div *ngIf="f.categoryUuid.errors">{{ 'addItem.categoryRequired' | translate }}</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="containsOptions">{{ 'addItem.hasOptions' | translate }} </label> &nbsp;
+          <app-dropdown-boolean-selector
+            (messageEvent)="receiveMessageContainsOptions($event)"></app-dropdown-boolean-selector>
+        </div>
+      </div>
+      <!--<mat-form-field class="example-full-width">-->
+      <!--<input matInput id="options" placeholder="{{ 'addItem.optSepByCom' | translate }}" formControlName="options">-->
+      <!--</mat-form-field>-->
+
+      <br>
+      <div class="upload-btn-wrapper">
+        <button class="btn-upload">{{ 'addCategory.uploadImage' | translate }}</button>
+        <input type="file" name="myfile" id="myFile" accept="image/*"/>
+      </div>
+
+      <!--<div class="center-items">-->
+        <!--<h3 class="center-items">Modifiers</h3>-->
+        <!--<br>-->
+        <!--<button mdbBtn color="info" type="button" block="true" style="width: 90px" (click)="addModifier()">{{ 'button.add' | translate}}-->
+        <!--</button>-->
+      <!--</div>-->
+      <!--<br>-->
+      <!--<div class="center-items" *ngFor="let modifier of modifiers; let i = index">-->
+        <!--<mat-form-field class="">-->
+          <!--<input matInput id="modifierName-{{i}}" placeholder="{{ 'modifiers.name' | translate }}"-->
+                 <!--value="{{modifier.name}}" (blur)="onModifierChange(i, 'name')">-->
+        <!--</mat-form-field> &nbsp; &nbsp;-->
+        <!--<mat-form-field class="">-->
+          <!--<input type="number" matInput id="modifierPrice-{{i}}" placeholder="{{ 'modifiers.price' | translate }}"-->
+                 <!--value="{{modifier.price}}" (blur)="onModifierChange(i, 'price')">-->
+        <!--</mat-form-field>-->
+        <!--&nbsp; &nbsp;-->
+        <!--<button mdbBtn color="danger" (click)="deleteModifier(i)">Delete</button>-->
+      <!--</div>-->
+
+      <div class="center-items" *ngFor="let group of modifierGroups; let i = index">
+        <div class="center-items">
+          <h3 class="center-items">Modifier Group {{i}}</h3>
+          <br>
+          <button *ngIf="i===0" mdbBtn color="info" type="button" block="true" style="width: 90px" (click)="addModifierGroup()">{{ 'button.add' | translate}}
+          </button>
+        </div>
+        <br>
+        <mat-form-field class="">
+          <input matInput id="modifierGroupName-{{i}}" placeholder="Modifier Group Name"
+                 [(ngModel)]="group.groupName" [ngModelOptions]="{standalone: true}">
+        </mat-form-field> &nbsp; &nbsp;
+        <mat-form-field class="">
+          <input matInput id="modifierGroupMinimum-{{i}}" type="number" placeholder="Modifier Group Minimum"
+                 [(ngModel)]="group.minimumSelect" [ngModelOptions]="{standalone: true}">
+        </mat-form-field> &nbsp; &nbsp;
+        <mat-form-field class="">
+          <input type="number" matInput id="modifierGroupPrice-{{i}}" placeholder="Modifier Group Limit"
+                 [(ngModel)]="group.groupLimit" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        &nbsp; &nbsp;
+        <button mdbBtn color="danger" (click)="deleteModifierGroup(i)">Delete</button>
+
+        <div class="center-items">
+          <h3 class="center-items">Group {{i}} Modifiers</h3>
+          <br>
+          <button mdbBtn color="info" type="button" block="true" style="width: 90px" (click)="addModifiersToGroups(i)">{{ 'button.add' | translate}}
+          </button>
+        </div>
+        <br>
+
+        <div class="center-items" *ngFor="let modifier of group.modifiers; let j = index">
+          <mat-form-field class="">
+            <input matInput id="{{group.groupName}}-{{i}}" placeholder="{{ 'modifiers.name' | translate }}"
+                   [(ngModel)]="group.modifiers[j].name" [ngModelOptions]="{standalone: true}">
+          </mat-form-field> &nbsp; &nbsp;
+          <mat-form-field class="">
+            <input type="number" matInput id="modifierPrice-{{i}}" placeholder="{{ 'modifiers.price' | translate }}"
+                   [(ngModel)]="group.modifiers[j].price" [ngModelOptions]="{standalone: true}">
+          </mat-form-field> &nbsp; &nbsp;
+          <mat-form-field *ngIf="i ===0">
+            <input type="number" matInput id="modifierPriceAddon-{{i}}" placeholder="Addon Price Difference"
+                   [(ngModel)]="group.modifiers[j].priceAddon" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          &nbsp; &nbsp;
+          <button mdbBtn color="danger" (click)="deleteModifier(i,j)">Delete</button>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <br>
+      </div>
+
+      <div class="form-group">
+        <button [routerLink]="['/itemList']" mdbBtn color="danger" block="true" class="my-4 margin">{{ 'button.cancel' | translate }}
+        </button>
+        <button [disabled]="loading" mdbBtn color="info" block="true" class="my-4">{{ 'button.submit' | translate }}
+        </button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+      </div>
+    </form>
+  </div>
+</div>

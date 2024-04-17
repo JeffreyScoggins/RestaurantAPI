@@ -1,0 +1,38 @@
+<!--<div style="margin-top: 150px;"></div>-->
+<div class="container-fluid">
+  <div class="playlist-position mt-5">
+    <videos-playlist [repeat]="repeat" [shuffle]="shuffle" [playlistToggle]="playlistToggle"
+                     [playlistNames]="playlistNames" [videoPlaylist]="videoPlaylist">
+    </videos-playlist>
+  </div>
+
+  <div class="spinner" *ngIf="videoList.length == 0; else showVideos">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-template #showVideos>
+    <main class="mdl-layout__content" LazyScroll (OnScrollMethod)="searchMore()" ScrollDistance="3">
+      <div class="page-content" [ngClass]="{'blur-main-playlist-opened': playlistToggle}">
+        <videos-list *ngIf="videoList.length" class="mdl-grid" (videoPlaylist)="checkAddToPlaylist($event)"
+                     [videoList]="videoList" [loadingInProgress]="loadingInProgress">
+        </videos-list>
+        <div class="loader" *ngIf="!videoList.length">
+          <div class="loading"></div>
+        </div>
+      </div>
+    </main>
+  </ng-template>
+
+
+
+  <div class="fixed-bottom">
+    <video-player (closePlaylist)="closePlaylist()" (importPlaylist)="importPlaylist($event)"
+                  (exportPlaylist)="exportPlaylist()" (clearPlaylist)="clearPlaylist()"
+                  (playFirstInPlaylist)="playFirstInPlaylist()" (repeatActive)="repeatActive($event)"
+                  (shuffleActive)="shuffleActive($event)"
+                  (nextVideoEvent)="nextVideo()" (prevVideoEvent)="prevVideo()">
+    </video-player>
+
+  </div>
+
+</div>

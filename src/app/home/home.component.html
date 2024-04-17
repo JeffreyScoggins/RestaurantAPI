@@ -1,0 +1,56 @@
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <i *ngIf="currentUser.role !=='3' && currentUser.role !=='4'" class="material-icons" routerLink="/serverOrder">
+      arrow_back
+    </i>
+    <i *ngIf="currentUser.role ==='4'" class="material-icons" routerLink="/orderWizard">
+      arrow_back
+    </i>
+    <!-- <div *ngIf="currentUser.role ==='3' || currentUser.role ==='4'"> -->
+      <div></div>
+    <div *ngIf="categoriesFirstSwitch">
+    <h2>{{'order.categories' | translate }}</h2>
+    </div>
+    <div *ngIf="!categoriesFirstSwitch">
+    <h2>{{'items.title' | translate }}</h2>
+    </div>
+    <div></div>
+  <!-- </div> -->
+    <div >
+      <a *ngIf="currentUser.role ==='3' || currentUser.role ==='4'" (click)="callServer()">
+      <img class="call-waiter-image" src="../assets/call-waiter.png" alt="loading">
+      </a>
+    </div>
+
+  </div>
+</div>
+<div *ngIf="categoriesFirstSwitch" class="row main-container">
+    <div *ngFor="let category of cloverCategories;  let i = index" class="col-width mb-3 ml-4">
+        <div>
+          <div class="item-container" [routerLink]="['/itemByCategory', { categoryUuid: category.id,
+                                                     tableUuid: tableUuid, tableName: tableName }]">
+             <img class="item-image" id='base64image' src="{{category.imageData}}"> 
+            <div class="width-setter"><b>{{category.name}}</b></div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!categoriesFirstSwitch" class="row main-container">
+  <div *ngFor="let item of cloverItems;  let i = index" class="col-width mb-3 ml-4">
+      <div>
+        <div class="item-container" [routerLink]="['/categoriesByItem', { itemUuid: item.id,
+                                                   tableUuid: tableUuid, tableName: tableName }]">
+          <img class="item-image" id='base64image' src="{{item.imageData}}"> 
+          <div class="width-setter"><b>{{item.name}}</b></div>
+          <div class="width-setter"> ${{item.price}}</div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<notifier-container></notifier-container>

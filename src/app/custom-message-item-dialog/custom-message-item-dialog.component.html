@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{description}}</h2>
+<mat-dialog-content>
+  <div class="dialog-options-container">
+    <textarea id="custom-message-input" style="width: 100%; height: 100px"></textarea>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div class="button-container">
+    <button mdbBtn color="danger" block="true" class="my-4 right-margin-set" (click)="close()">{{ 'button.cancel' | translate }}</button>
+    <button mdbBtn color="info" block="true" class="my-4" (click)="confirm()">{{ 'button.confirm' | translate }}</button>
+  </div>
+</mat-dialog-actions>
+

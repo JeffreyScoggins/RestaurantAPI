@@ -1,0 +1,22 @@
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <div></div>
+    <h2>{{ 'waiterRequest.title' | translate }}</h2>
+    <div></div>
+  </div>
+  <br>
+
+  <div class="row" *ngFor="let request of waiterRequests">
+    <div class="card-container">
+      <span class="message-container"><b>{{request.messageData}}</b></span>
+      <div></div>
+      <button [disabled]="loadingButton" mdbBtn color="info" block="true" class="my-4"
+              (click)="deleteServerRequest(request.id)">{{ 'button.complete' | translate }}</button>
+    </div>
+  </div>
+
+</div>
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>

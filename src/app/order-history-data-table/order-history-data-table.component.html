@@ -1,0 +1,47 @@
+<!--<div class="example-header">-->
+  <!--<mat-form-field>-->
+    <!--<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">-->
+  <!--</mat-form-field>-->
+<!--</div>-->
+
+<div class="navigation-details-panel">
+  <div></div>
+  <h2>{{ 'orderHisTable.title' | translate }}</h2>
+  <div></div>
+</div>
+
+<div class="toolbar-container">
+  <input id="startDate" type="date" value="2018-01-01" class="form-control" name="date" (change)="dateChange()">
+  <input id="endDate" value="2020-01-01" type="date" class="form-control" name="date" (change)="dateChange()">
+</div>
+
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'orderHistory.name' | translate }}</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'orderHistory.price' | translate }}</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.price}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="createdDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'orderHisTable.date' | translate }}</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.createdDate | date: 'MM/dd hh:mm a'}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="selectedOptions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'orderHisTable.selectedOptions' | translate }}</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.selectedOptions}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <button mdbBtn color="info" block="true" class="my-4" (click)="exportCsv()">Export CSV</button>
+</div>

@@ -1,0 +1,68 @@
+﻿<!-- Default form login -->
+<div class="parent">
+  <form [formGroup]="loginForm" class="element text-center border border-light p-5" (ngSubmit)="onSubmit()">
+    <img class="i1" src="./assets/TOMS6.png" alt="logo"/>
+    <p class="h4 mb-4">SIGN IN</p>
+
+    <!-- Email -->
+    <input formControlName="username" type="email" class="form-control mb-4"
+           placeholder="E-mail"
+           [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+    <!-- Password -->
+    <input formControlName="password" type="password" class="form-control mb-4"
+           placeholder="Password"
+           [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <div>
+        <!-- Remember me -->
+        <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
+      </div>
+      <div>
+        <!-- Forgot password -->
+        <a href="">Forgot password?</a>
+      </div>
+    </div>
+
+
+    <!-- Sign in button -->
+    <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+    <!-- Error Div -->
+    <div *ngIf=error style="color: red">
+      Invalid username/password. Your account may be disabled.
+    </div>
+    <!-- Register -->
+    <p>Not a member?
+      <a [routerLink]="['/register']" class="btn-link">Register</a>
+    </p>
+
+    <!-- Social login
+    <p>or sign in with:</p>
+
+    <a type="button" class="light-blue-text mx-2">
+      <!-- <i class="fab fa-facebook-f"></i>
+      <mdb-icon fab icon="facebook"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <!-- <i class="fab fa-twitter"></i>
+      <mdb-icon fab icon="twitter"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <!-- <i class="fab fa-linkedin-in"></i>
+      <mdb-icon fab icon="linkedin"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <!-- <i class="fab fa-github"></i>
+      <mdb-icon fab icon="github"></mdb-icon>
+    </a>
+    -->
+
+  </form>
+  <!-- Default form login -->
+</div>

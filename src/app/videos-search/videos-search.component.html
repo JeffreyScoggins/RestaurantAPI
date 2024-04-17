@@ -1,0 +1,14 @@
+<form class="md-form pad" [formGroup]="searchForm" (ngSubmit)="doSearch($event)">
+  <div class="row">
+    <div class="md-form my-0">
+      <input class="form-control mr-sm-2" mdbInput formControlName="query"
+      type="text" id="query" autocomplete="off" placeholder="Search YouTube">
+    </div>
+    <div class="row mb-4">
+
+      <button type="submit" class="mdl-button mdl-js-button">
+        <mdb-icon class="white-text" fas icon="search"></mdb-icon>
+      </button>
+    </div>
+  </div>
+</form>

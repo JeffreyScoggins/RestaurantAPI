@@ -1,0 +1,61 @@
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+  <div>
+    <div class="navigation-details-panel">
+      <div></div>
+      <h2>Accounts and Tables</h2>
+      <a [routerLink]="['/createUser']">
+        <i class="material-icons">add_circle_outline</i>
+      </a>
+    </div>
+    <div class="search-bar-container">
+      <form>
+        <input type="search" id="myInput" required class="search-box" (keyup)="loadUsersBySearch()"
+               (keypress)="loadUsersBySearch()" placeholder="Search by name or username" title="Type in a name">
+        <button class="close-icon" (click)="resetInput()" type="reset"></button>
+      </form>
+    </div>
+  </div>
+
+  <table id="example" class="mdl-data-table" style="width:100%">
+
+  <thead *ngIf="currentUser.role === '1' || currentUser.role === '2'">
+    <tr>
+      <th (click)="sortByUsername()"><a>Username</a></th>
+      <th fxShow="false" fxShow.lg="true" (click)="sortByFirstName()"><a class="sort-by">First Name</a></th>
+      <th fxShow="false" fxShow.lg="true" (click)="sortByLastName()"><a class="sort-by">Last Name</a></th>
+      <th (click)="sortByAccountType()"><a class="sort-by">Account Type</a></th>
+      <!--<th (click)="sortByAccountDeactive()"><a class="sort-by">Account Active</a></th>-->
+      <th *ngIf="isAdmin(currentUser)" (click)="sortByAccountDeactive()"><a class="sort-by">Deactivate/Activate</a></th>
+      <th *ngIf="currentUser.role === '1' || currentUser.role === '2'"><a class="sort-by">Password</a></th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="currentUser.role === '1' || currentUser.role === '2'">
+    <tr *ngFor="let user of users; let i = index" [hidden]="currentUser.role !== '1' && currentUser.role !== '2'">
+      <td>{{user.username}}</td>
+      <td fxShow="false" fxShow.lg="true" contenteditable="true" (blur)="changeValue(user, 'fName', $event)">{{user.firstName}}</td>
+      <td fxShow="false" fxShow.lg="true" contenteditable="true" (blur)="changeValue(user, 'lName', $event)">{{user.lastName}}</td>
+      <td>
+        <app-dropdown-user-roles [user]="user"></app-dropdown-user-roles>
+      </td>
+      <!--<td>{{user.accountActive}}</td>-->
+      <td *ngIf="user.accountActive"><a (click)="deactivateUser(user, currentUser)" class="text-danger">Deactivate</a>
+      </td>
+      <td *ngIf="!user.accountActive"><a (click)="activateUser(user, currentUser)" class="text-danger">Activate</a></td>
+      <td *ngIf="currentUser.role === '1' || currentUser.role === '2'">
+        <button [disabled]="loadingButton" mdbBtn color="info" block="true" class="my-2"
+                (click)="resetPassword(user, currentUser)">Reset</button>
+      </td>
+      <td *ngIf="user.role !== '1'">
+        <button [disabled]="loadingButton" mdbBtn color="danger" block="true" class="my-2" (click)="deleteUserTable(user._id)">Delete</button>
+      </td>
+      <td *ngIf="user.role === '1'"></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

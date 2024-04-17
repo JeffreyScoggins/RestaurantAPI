@@ -1,0 +1,128 @@
+{
+  "order": {
+    "categories": "الاقسام"
+  },
+
+  "sidebar": {
+    "menu": "قائمة طعام",
+    "order": "قدم طلبا",
+    "orderHistory": "تاريخ الطلب",
+    "orderView": "عرض الطلبات",
+    "transactions": "المعاملات",
+    "waiterMenu": "قائمة الخادم",
+    "serverOrder": "طلب الخادم",
+    "orderReady": "الطلبات الجاهزة",
+    "tableReview": "مراجعة الطاولة",
+    "management": "الإدارة",
+    "userAccounts": "حسابات المستخدمين",
+    "items": "العناصر",
+    "logout": "الخروج"
+  },
+
+  "addCategory": {
+    "title": "إضافة قسم",
+    "categoryName": "اسم القسم",
+    "required": "مطلوب",
+    "addLogo": "Select Logo Image",
+    "categoryNameIs": "اسم القسم هو",
+    "uploadImage": "تحميل الصور"
+  },
+
+  "addItem": {
+    "title": "اضافة عنصر",
+    "name": "اسم",
+    "required": " مطلوب",
+
+    "price": "السعر",
+    "maxOptionsSelect": "الحد الأقصى للاختيار",
+    "minOptionsSelect": "الحد الأدنى للاختيار",
+    "field": "حقل",
+    "category": "القسم",
+    "categoryRequired": "اختيار القسم مطلوب",
+    "hasOptions": "لديه خيارات ",
+    "optSepByCom": "خيارات مفصولة بفواصل"
+  },
+
+  "categories": {
+    "title": "الاقسام"
+  },
+
+  "items": {
+    "title": "العناصر",
+    "customize": "تخصيص الطلب",
+    "order": "طلب",
+    "viewCart": "عرض العربة",
+    "reviewOrder": "مراجعة الطلب"
+  },
+
+  "orderHistory": {
+    "title": "تاريخ الطلب",
+    "name": "اسم",
+    "price": "السعر",
+    "customizations": "تخصيص الطلب",
+    "total": "مجموع"
+  },
+
+  "orderHisTable": {
+    "title": "تاريخ المعاملات",
+    "date": "تاريخ",
+    "selectedOptions": "الخيارات المحددة"
+  },
+
+  "serverOrder": {
+    "title": "طلب الخادم"
+  },
+
+  "tableSummary": {
+    "title": "ملخص الطاولة",
+    "resetTable": "إعادة تعيين الطاولة"
+  },
+
+  "viewCart": {
+    "orderConfirmation": "تأكيد الطلب",
+    "orderConfirmationFor": "تأكيد الطلب ل "
+  },
+
+  "viewOrders": {
+    "title": "عرض الطلب",
+    "sortBy": "ترتيب حسب",
+    "filter": "Filter: ",
+    "by": " by ",
+    "table": "الطاولة",
+    "status": "وضع",
+    "statusChange": "تغيير الوضع"
+  },
+
+  "waiterRequest": {
+    "title": "الخادم المطلوب"
+  },
+
+  "waiterReady": {
+    "title": "جاهز للطاولة"
+  },
+
+  "button": {
+    "delete": "حذف",
+    "cancel": "إلغاء",
+    "submit": "قدم",
+    "complete": "اكتمال",
+    "confirm": "تؤكد",
+    "ok": "حسنا",
+    "add": "Add",
+    "placeOrder": "تضع طلبية",
+    "start": "بداية",
+    "update": "تحديث",
+    "finish": "إنهاء"
+  },
+
+  "orderWizard": {
+    "estimatedTime": " متوقع وقت ",
+    "enterFullName": "من فضلك ادخل اسمك الكامل",
+    "minutes": "الدقائق"
+  },
+
+  "modifiers": {
+    "name": "Modifier Name",
+    "price": "Price"
+  }
+}

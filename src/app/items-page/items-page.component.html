@@ -1,0 +1,43 @@
+<div>
+  <alert></alert>
+  <div *ngIf="!loading" class="mainDiv">
+  <div class="navigation-details-panel">
+    <div></div>
+    <h2>{{ 'items.title' | translate }}</h2>
+  <div></div>
+    <!-- <a [routerLink]="['/addItem']"><i class="material-icons">
+      add
+    </i></a> -->
+    <!--<form>-->
+    <!--<input type="search" id="myInput" required class="search-box" (keyup)="loadUsersBySearch()"-->
+    <!--(keypress)="loadUsersBySearch()" placeholder="Search by name or username" title="Type in a name">-->
+    <!--<button class="close-icon" (click)="resetInput()" type="reset"></button>-->
+    <!--</form>-->
+  </div>
+</div>
+  <div class="row main-container" *ngIf="!loading">
+    <div *ngFor="let item of items; let i = index" class="col-width mb-3 ml-4">
+      <div class="item-info-format">
+
+
+        <div class="item-container">
+          <img class="item-image" id='base64image' src="{{item.imageData}}">
+          <div class="item-info-container">
+            <!-- <div class="width-setter"> ${{item.price}}</div> -->
+            <div class="width-setter"> {{item.name}}</div>
+            <!-- <button type="button" class="button" mdbBtn color="secondary"
+                    (click)="deleteItem(item.id)" [disabled]="loadingButton" mdbWavesEffect>{{ 'button.delete' | translate }}</button> -->
+            <button type="button" class="button" [disabled]="loadingButton" mdbBtn color="secondary" (click)="updateImage(item)" mdbWavesEffect>{{ 'button.update' | translate }}</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<notifier-container></notifier-container>

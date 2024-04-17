@@ -1,0 +1,45 @@
+.center-input {
+  font-family: Roboto;
+  display: inline-flex;
+}
+
+
+.i1 {
+  width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92vh; //changed from 100vh to remove scrollbar
+}
+
+.element {
+  min-height: 450px;
+  width: 450px;
+  margin: auto;
+  text-align: center !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  padding: 30px 20px 10px 10px;
+  background-color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+.call-waiter-image {
+  height: 70px ;
+  width: 70px;
+}
+
+.logo-image {
+  max-width: 200px;
+  max-height: 200px;
+}

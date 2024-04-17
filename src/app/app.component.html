@@ -1,0 +1,5 @@
+﻿<app-sidebar-menu *ngIf="showMenu"></app-sidebar-menu>
+<div *ngIf="!showMenu">
+<app-login-page *ngIf="loginPage"></app-login-page>
+<app-register-menu *ngIf="!loginPage"></app-register-menu>
+</div>

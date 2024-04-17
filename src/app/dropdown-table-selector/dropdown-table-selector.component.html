@@ -1,0 +1,5 @@
+<select class="custom-select" style="width:auto;" (change)="sendMessage($event.target.value)">
+  <option selected="true">Select a Table</option>
+  <option *ngFor="let table of tables;" value="{{table.username}}">{{table.username}}</option>
+</select>
+

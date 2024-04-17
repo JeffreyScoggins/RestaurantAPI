@@ -1,0 +1,37 @@
+
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <div></div>
+    <h2>{{ 'categories.title' | translate }}</h2>
+    <!-- <a [routerLink]="['/addCategories']"><i class="material-icons">
+      add_circle_outline
+    </i></a> -->
+    <!--<form>-->
+    <!--<input type="search" id="myInput" required class="search-box" (keyup)="loadUsersBySearch()"-->
+    <!--(keypress)="loadUsersBySearch()" placeholder="Search by name or username" title="Type in a name">-->
+    <!--<button class="close-icon" (click)="resetInput()" type="reset"></button>-->
+    <!--</form>-->
+    <div></div>
+  </div>
+
+  <div  *ngIf="!loading" class="row main-container">
+      <div *ngFor="let category of cloverCategories; let i = index" class="col-width mb-3 ml-4">
+        <div class="item-info-format">
+
+          <div class="item-container" >
+          <img class="item-image" id='base64image' src="{{category.imageData}}">
+          <div class="item-info-container">
+          <div class="width-setter">{{category.name}}</div>
+          <!-- <button [disabled]="loadingButton" mdbBtn color="secondary" (click)="deleteCategory(category.id)">{{ 'button.delete' | translate }}</button> -->
+          <button [disabled]="loadingButton" mdbBtn color="secondary" (click)="updateImage(category)" mdbWavesEffect>{{ 'button.update' | translate }}</button>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>
+<notifier-container></notifier-container>

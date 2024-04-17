@@ -1,0 +1,108 @@
+<div *ngIf="!loading" class="mainDiv">
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <div></div>
+    <h2>{{ 'viewOrders.title' | translate }}</h2>
+    <div></div>
+
+    <!--<form>-->
+    <!--<input type="search" id="myInput" required class="search-box" (keyup)="loadUsersBySearch()"-->
+    <!--(keypress)="loadUsersBySearch()" placeholder="Search by name or username" title="Type in a name">-->
+    <!--<button class="close-icon" (click)="resetInput()" type="reset"></button>-->
+    <!--</form>-->
+  </div>
+
+  <div class="toolbar-container">
+    <label>{{ 'viewOrders.filter' | translate }}</label>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="typeDropdown" (change)="onValChange($event.value)">
+      <mat-button-toggle value="categories" >{{ 'categories.title' | translate }}</mat-button-toggle>
+      <mat-button-toggle value="items">{{ 'items.title' | translate }}</mat-button-toggle>
+    </mat-button-toggle-group> &nbsp;
+    <label>{{ 'viewOrders.by' | translate }}</label>
+    <app-dropdown-filter-by-category-selector class="selector-format" *ngIf="typeDropdown === 'categories'"
+                                              (messageEvent)="receiveMessage($event)"></app-dropdown-filter-by-category-selector>
+    <app-dropdown-filter-by-item-selector class="selector-format" *ngIf="typeDropdown === 'items'"
+                                          (messageEvent)="receiveMessage($event)"></app-dropdown-filter-by-item-selector>
+
+    <mat-button-toggle-group style="margin-left: auto;" name="fontStyle" aria-label="Font Style" [value]="viewAsList"
+                             (change)="viewAsList = !viewAsList">
+      <mat-button-toggle [value]="true"><i class="material-icons">
+        list
+      </i></mat-button-toggle>
+      <mat-button-toggle [value]="false"><img class="sort-icon" src="../../assets/accordion.png">
+      </mat-button-toggle>
+    </mat-button-toggle-group> &nbsp;
+
+  </div>
+
+  <br>
+  <table id="example" class="mdl-data-table" style="width:100%" *ngIf="orders.length >= 1 && viewAsList">
+    <thead>
+    <tr>
+      <th><a>{{ 'addItem.name' | translate }}</a></th>
+      <th><a>{{ 'viewOrders.table' | translate }}</a></th>
+      <th><a>{{ 'viewOrders.status' | translate }}</a></th>
+      <th><a>{{ 'orderHisTable.selectedOptions' | translate }}</a></th>
+      <th><a>{{ 'viewOrders.statusChange' | translate }}</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders; let i = index">
+      <td> {{order.name}}</td>
+      <td> {{order.tableName}}</td>
+      <td> {{order.status}}</td>
+      <td>{{order.selectedOptions}}</td>
+      <td><a (click)="statusChangeButtonClick(order)">
+        <button [disabled]="loadingButton"mdbBtn color="info" block="true" class="my-2" *ngIf="order.status === 'submitted'">
+          {{ 'button.start' | translate }}
+        </button>
+        <button [disabled]="loadingButton" mdbBtn color="info" block="true" class="my-2" *ngIf="order.status === 'started'">
+          {{ 'button.finish' | translate }}
+        </button></a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <mat-accordion *ngIf="orders.length >= 1 && !viewAsList">
+    <mat-expansion-panel *ngFor="let table of orderTables">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{table}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Tap to View Orders For {{table}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!--<div *ngFor="let order of ordersByTableName(table)">I'm visible because I am open</div>-->
+      <table id="example" class="mdl-data-table" style="width:100%">
+        <thead>
+        <tr>
+          <th><a>{{ 'addItem.name' | translate }}</a></th>
+          <th><a>{{ 'viewOrders.status' | translate }}</a></th>
+          <th><a>{{ 'orderHisTable.selectedOptions' | translate }}</a></th>
+          <th><a>{{ 'viewOrders.statusChange' | translate }}</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of ordersByTableName(table)">
+          <td> {{order.name}}</td>
+          <td> {{order.status}}</td>
+          <td><span *ngFor="let option of order.selectedOptions">{{option}} </span></td>
+          <td><a (click)="statusChangeButtonClick(order)">
+            <button [disabled]="loadingButton"mdbBtn color="info" block="true" class="my-2" *ngIf="order.status === 'submitted'">
+              {{ 'button.start' | translate }}
+            </button>
+            <button [disabled]="loadingButton" mdbBtn color="info" block="true" class="my-2" *ngIf="order.status === 'started'">
+              {{ 'button.finish' | translate }}
+            </button></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+</div>
+<div class="loader-container" *ngIf="loading">
+  <img class="loading-gif" src="../assets/Coffeeloader.svg" alt="loading">
+</div>

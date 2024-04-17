@@ -1,0 +1,111 @@
+<mat-sidenav-container *ngIf="currentUser? currentUser.role !== '4': false" class="example-container" fullscreen>
+  <mat-sidenav class="sidenav-items" #sidenav mode="side" opened>
+    <img class="avatar-image" src="{{currentUser.imageData ? currentUser.imageData : './assets/TOMS6.png' }}" alt="logo"/>
+    <h3 class="header">{{currentUser?.username}}</h3>
+    <div class="link-container">
+      <div class="dropdown-container">
+        <app-dropdown-language-selector></app-dropdown-language-selector>
+      </div>
+      <a></a>
+
+      <a class="dropdown-item waves-light" routerLinkActive="active "
+         *ngIf="currentUser? currentUser.role === '3': false" routerLink="/order" mdbWavesEffect>{{ 'sidebar.menu' | translate }}</a>
+
+
+      <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/orderHistory"
+         *ngIf="currentUser? currentUser.role === '3': false" mdbWavesEffect>{{ 'sidebar.orderHistory' | translate }}</a>
+
+      <!-- **MES start** -->
+      <!-- <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/viewOrders"
+         *ngIf="currentUser.role === '1' || currentUser.role === '2'" mdbWavesEffect>{{ 'sidebar.orderView' | translate }}</a>
+
+
+      <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/orderHistoryLookup"
+         *ngIf="currentUser.role === '1' || currentUser.role === '2'" mdbWavesEffect>{{ 'sidebar.transactions' | translate }}</a> -->
+      <!-- **MES end** -->
+
+      <!--<li class="nav-item">-->
+      <!--<a class="nav-link waves-light" routerLinkActive="active" routerLink="/youtube" mdbWavesEffect>Youtube</a>-->
+
+      <!--</li>-->
+      <!-- Dropdown -->
+      <!--<a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/help" mdbWavesEffect href="#">Help</a>-->
+
+
+      <div class="nav" *ngIf="currentUser? currentUser.role !== '3': false">
+        <input type="checkbox" id="menu-1"/>
+        <label class="dropdown-items-label" for="menu-1">{{ 'sidebar.waiterMenu' | translate }}<i class="material-icons dropdown-icon">
+          expand_more
+        </i></label>
+
+        <div class="multi-level-1">
+
+          <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/serverOrder"
+             *ngIf="currentUser? currentUser.role === '1' || currentUser.role === '2': false" mdbWavesEffect>
+            <span class="dropdown-text-container">&nbsp; &nbsp;{{ 'sidebar.serverOrder' | translate }}</span></a>
+
+          <!-- **MES** -->
+          <!-- <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/readyOrderView"
+             *ngIf="currentUser.role === '1'" mdbWavesEffect>
+            <span class="dropdown-text-container">&nbsp; &nbsp;{{ 'sidebar.orderReady' | translate }}</span></a> -->
+
+          <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/viewTableSummary"
+             *ngIf="currentUser? currentUser.role === '1' || currentUser.role === '2' :false" mdbWavesEffect>
+            <span class="dropdown-text-container">&nbsp; &nbsp;{{ 'sidebar.tableReview' | translate }}</span></a>
+
+
+        </div>
+      </div>
+
+      <div class="nav" *ngIf="currentUser? currentUser.role !== '3': false">
+        <input type="checkbox" id="menu"/>
+        <label class="dropdown-items-label" for="menu">{{ 'sidebar.management' | translate }}<i class="material-icons dropdown-icon">
+          expand_more
+        </i></label>
+
+        <div class="multi-level">
+
+          <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/userAccounts"
+             *ngIf="currentUser? currentUser.role === '1' : false" mdbWavesEffect>&nbsp; &nbsp;{{ 'sidebar.userAccounts' | translate }}</a>
+          <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/categories"
+             *ngIf=" currentUser? currentUser.role === '1' || currentUser.role === '2' : false" mdbWavesEffect href="#">&nbsp; &nbsp;{{ 'order.categories' | translate }}</a>
+          <a class="dropdown-item waves-light" routerLinkActive="active" routerLink="/itemList"
+             *ngIf="currentUser? currentUser.role === '1' || currentUser.role === '2' : false" mdbWavesEffect href="#">&nbsp; &nbsp;{{ 'sidebar.items' | translate }}</a>
+
+
+        </div>
+      </div>
+
+      <!--<div class="divider dropdown-divider"></div>-->
+
+      <div class="logout-option"><a (click)="logout()">{{ 'sidebar.logout' | translate }}</a></div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content-container">
+    <div class="content-router-container">
+      <a fxShow="false" fxShow.xs="true"><i class="material-icons" (click)="sidenav.toggle()">menu
+      </i></a>
+      <router-outlet></router-outlet>
+      <div class="cart-container" routerLink="/cart" *ngIf="currentUser?currentUser.role === '3' : false">
+        <img class="cart-icon" src="../assets/cart-icon.png" alt="loading"><span class="cart-item-count">{{(shoppingCartItems$ | async).length}}</span>
+      </div>
+      <div class="cart-container" routerLink="/waiterRequestView" *ngIf="currentUser? currentUser.role !== '3' : false" >
+        <img class="call-waiter-image" src="../assets/call-waiter-white.png" alt="loading">
+      </div>
+    </div>
+    <footer>
+      <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a>DrivenSoftwareSolutions.com</a>
+      </div>
+    </footer>
+    <div *ngIf="currentUser? currentUser.role !== '3' && currentUser.role !== '4' : false">
+      <notifier-container></notifier-container>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="body-container" *ngIf=" currentUser? currentUser.role === '4' : false">
+  <router-outlet></router-outlet>
+  <notifier-container></notifier-container>
+</div>

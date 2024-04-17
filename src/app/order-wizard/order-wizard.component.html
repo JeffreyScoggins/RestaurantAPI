@@ -1,0 +1,25 @@
+<div class="navigation-details-panel">
+  <div>
+    <button mdbBtn color="info"  block="true" routerLink="/logout" class="input" >Log Out</button>
+  </div>
+  <div class="parent">
+  <form class="element text-center border border-light p-5" (ngSubmit)="startOrder()">
+    <img class="logo-image" src="{{currentUser.imageData ? currentUser.imageData : './assets/TOMS6.png' }}" alt="logo"/>
+    <br><br>
+    <p><b>{{'orderWizard.estimatedTime' | translate }}: {{estimatedTime}} {{'orderWizard.minutes' | translate }}</b></p>
+    <app-dropdown-language-selector></app-dropdown-language-selector>
+    <br><br>
+    <mat-form-field style="width: 100%;" >
+      <input matInput id="name" class="input"  placeholder="{{'orderWizard.enterFullName' | translate }}">
+    </mat-form-field>
+    <button mdbBtn color="info" block="true" (click)="startOrder()" class="my-4">Submit</button>
+  </form>
+  <!-- Default form login -->
+</div>
+  <div>
+    <a *ngIf="currentUser.role ==='3' || currentUser.role ==='4'" (click)="callServer()">
+      <img class="call-waiter-image" src="../assets/call-waiter.png" alt="loading">
+
+    </a>
+  </div>
+</div>

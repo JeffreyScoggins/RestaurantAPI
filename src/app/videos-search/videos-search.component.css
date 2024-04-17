@@ -1,0 +1,21 @@
+.pad {
+  margin-right: 75px;
+  margin-bottom: -20px;
+  float: right;
+}
+
+@media screen and (max-width: 900px) {
+  .mdl-textfield__input .pad .mdl-textfield__label:after {
+    margin: 0;
+    width: 100%;
+    float: none;
+  }
+
+  .pad {
+    margin-right: 0;
+  }
+
+  mdb-icon {
+    display: none;
+  }
+}

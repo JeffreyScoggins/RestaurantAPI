@@ -1,0 +1,39 @@
+<div class="main-container-form">
+  <div class="close-dialog-btn">
+    <button  mat-icon-button aria-label="Clear" (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <h1 mat-dialog-title>
+      <h2> Modify Image </h2>
+    </h1>
+  <mat-error *ngIf="selectionError">{{ errorMsg }}</mat-error>
+
+  <!-- <mat-dialog-content [formGroup]="image-form"> -->
+  <mat-dialog-content>
+      <h3> {{ dataType }} : {{ image.cloverDataName }} </h3>
+  <br>
+      <h5> Add image link or select from your device </h5>
+
+    <mat-form-field class="example-full-width">
+      <input type="url" matInput placeholder="Image Url" id="image-url" pattern="https://*">
+    </mat-form-field>
+    <h5> or </h5>
+    <div class="form-group">
+      <div class="upload-btn-wrapper">
+        <button class="btn-upload">{{ 'Select Image' | translate }}</button>
+        <input type="file" name="myfile" id="myFile" accept="image/*" />
+      </div>
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <div class="button-container">
+      <!-- <button (click)="close()" mdbBtn color="danger" block="true" class="my-4 right-margin-set">{{ 'button.cancel' | translate }}</button> -->
+      <button (click)="delete()" mdbBtn color="danger" block="true" class="my-4 right-margin-set">{{ 'Delete Image' | translate }}</button>
+      <button (click)="save()" mdbBtn color="info" block="true" class="my-4">{{ 'Update Image' | translate }}</button>
+    </div>
+  </mat-dialog-actions>
+</div>

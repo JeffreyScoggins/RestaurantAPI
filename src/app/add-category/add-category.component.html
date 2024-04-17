@@ -1,0 +1,35 @@
+<alert></alert>
+
+<div class="row" class="main-container-form">
+  <div class="form-container">
+    <alert></alert>
+    <h2>{{ 'addCategory.title' | translate }}</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="{{ 'addCategory.categoryName' | translate }}" formControlName="categoryName"
+               [ngClass]="{ 'is-invalid': submitted && f.categoryName.errors }">
+        <mat-error *ngIf="f.categoryName.errors">
+          {{ 'addCategory.categoryNameIs' | translate }} <strong>{{ 'addCategory.required' | translate }}</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Image Url" id="image-url">
+      </mat-form-field>
+
+
+      <div class="form-group">
+        <div class="upload-btn-wrapper">
+          <button class="btn-upload">{{ 'addCategory.uploadImage' | translate }}</button>
+          <input type="file" name="myfile" id="myFile" accept="image/*"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button [routerLink]="['/categories']" mdbBtn color="danger" block="true" class="my-4 margin">{{ 'button.cancel' | translate }}</button>
+        <button [disabled]="loading" mdbBtn color="info" block="true" class="my-4">{{ 'addCategory.title' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="mainDiv">
+  <alert></alert>
+  <div class="navigation-details-panel">
+    <div></div>
+    <h2>{{ 'tableSummary.title' | translate }}</h2>
+    <div></div>
+
+    <!--<form>-->
+    <!--<input type="search" id="myInput" required class="search-box" (keyup)="loadUsersBySearch()"-->
+    <!--(keypress)="loadUsersBySearch()" placeholder="Search by name or username" title="Type in a name">-->
+    <!--<button class="close-icon" (click)="resetInput()" type="reset"></button>-->
+    <!--</form>-->
+  </div>
+
+  <!-- <div class="toolbar-container">
+  <app-dropdown-table-selector defaultTableUUid="{{currentUser.uuid}}"
+                               (tableUuid)="onTableSelect($event)"></app-dropdown-table-selector>
+  </div> -->
+
+  <div class="toolbar-container">
+    <app-dropdown-table-selector defaultTableUsername="{{currentUser.username}}"
+      (tableUsername)="onTableSelect($event)"></app-dropdown-table-selector>
+  </div>
+
+  <br>
+  <div *ngIf="tableSelected == true">
+    <div *ngIf="!loading">
+
+      <div *ngIf="orderId != null && lineItems.length == 0">
+        <h3 style.align="center"> No items in the order </h3>
+      </div>
+
+      <div *ngIf="orderId == null">
+        <h3 style.align="center"> No Open Order for this table </h3>
+      </div>
+
+
+      <!-- <table id="example" class="mdl-data-table" style="width:100%" *ngIf="orderHistory.length >= 1"> -->
+      <table id="example" class="mdl-data-table" style="width:100%" *ngIf="lineItems.length >= 1">
+
+        <thead>
+          <tr>
+            <th><a>{{ 'addItem.name' | translate }}</a></th>
+            <th><a>{{ 'Custom Message' | translate }}</a></th>
+            <th><a>{{ 'orderHistory.customizations' | translate }}</a></th>
+            <th><a>{{ 'addItem.price' | translate }}</a></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <ng-container *ngFor="let line of lineItems; let i = index">
+            <tr>
+              <td> {{line.name}} </td>
+              <td> <i> {{line.note}} </i></td>
+              <td> </td>
+              <td>
+                <!-- {{line.priceWithModifiers > 0 ? line.priceWithModifiers/100 : line.price/100  | number:'1.2'}} -->
+                ${{line.price/100 | number:'1.2'}}
+              </td>
+              <td><button (click)="deleteActionHandle(i)" mdbBtn color="danger" block="true"
+                  class="my-2">{{ 'button.delete' | translate }}</button></td>
+
+            </tr>
+            <ng-container *ngIf="line.hasOwnProperty('modifications')">
+              <tr class="small-rows" *ngFor="let modification of line.modifications.elements ">
+                <td></td>
+                <td></td>
+                <td> {{modification.name}} &nbsp;&nbsp;</td>
+                <td> ${{modification.amount/100 | number:'1.2'}}</td>
+              </tr>
+            </ng-container>
+
+
+            <div class="divider"></div>
+
+          </ng-container>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td></td>
+            <td><b>{{ 'orderHistory.total' | translate }}:</b></td>
+            <td></td>
+            <td><b>${{getTotalAmount()/100 | number:'1.2'}}</b></td>
+          </tr>
+        </tfoot>
+
+        <!-- <tbody>
+    <tr *ngFor="let order of orderHistory[0].orderItems; let i = index">
+      <td> {{order.name}}</td>
+      <td> {{order.price}}</td>
+      <td> {{order.selectedOptions}}</td>
+      <td><button (click)="deleteActionHandle(i)" mdbBtn color="danger" block="true" class="my-2">{{ 'button.delete' | translate }}</button></td>
+    </tr>
+    <div class="divider"></div>
+    <tr *ngFor="let order of orderHistory;">
+      <td>{{ 'orderHistory.total' | translate }}:</td>
+      <td>${{order.total | number:'1.2'}}</td>
+      <td></td>
+    </tr>
+    </tbody> -->
+      </table>
+
+      <button class="order-submit" *ngIf="currentUser.role !== '3' && orderId != null"
+        (click)="clearTableHistory()">{{ 'tableSummary.resetTable' | translate }}</button>
+    </div>
+  </div>

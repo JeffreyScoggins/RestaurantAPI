@@ -1,0 +1,35 @@
+.navigation-details-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-align {
+  text-align: center;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.main-container {
+  justify-content: center;
+}
+
+button {
+  height: 100px;
+  width: 200px;
+  border-radius: 20px;
+  background-color: #00b7fb;
+  font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+}

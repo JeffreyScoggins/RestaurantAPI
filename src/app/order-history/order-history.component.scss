@@ -1,0 +1,23 @@
+.navigation-details-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+}
+
+td, th {
+  text-align: left;
+  border: 0px;
+}
+
+.small-rows
+{
+  color: gray;
+}
